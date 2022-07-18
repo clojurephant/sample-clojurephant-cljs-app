@@ -8,7 +8,7 @@ In one terminal, start a continuous build of the `dev` ClojureScript:
 
     $ ./gradlew compileDevClojureScript -t
 
-Then start nREPL:
+In another terminal start the nREPL server:
 
     $ ./gradlew clojureRepl
 
