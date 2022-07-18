@@ -1,0 +1,19 @@
+{
+  "calva.replConnectSequences": [
+    {
+      "name": "Gradle + Figwheel REPL",
+      "projectType": "generic",
+      "nReplPortFile": [
+        ".nrepl-port"
+      ],
+      "afterCLJReplJackInCode": "",
+      "cljsType": {
+        "dependsOn": "User provided",
+        "isStarted": false,
+        "buildsRequired": false,
+        "connectCode": "(do (require '[figwheel.repl]) (require '[cider.piggieback]) (cider.piggieback/cljs-repl (figwheel.repl/repl-env)))",
+        "isConnectedRegExp": "To quit, type: :cljs/quit"
+      }
+    }
+  ]
+}
