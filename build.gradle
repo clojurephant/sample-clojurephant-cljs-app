@@ -1,5 +1,5 @@
 plugins {
-  id 'dev.clojurephant.clojurescript' version '0.7.0-alpha.3'
+  id 'dev.clojurephant.clojurescript' version '0.7.0-rc.1'
   id 'distribution'
 }
 
@@ -17,13 +17,14 @@ repositories {
 dependencies {
   implementation 'org.clojure:clojure:1.11.1'
   implementation 'org.clojure:clojurescript:1.11.60'
+
   devImplementation 'cider:piggieback:0.5.3'
   devImplementation 'com.bhauman:figwheel-repl:0.2.18'
+
+  // needed by figwheel-repl
   devImplementation 'org.eclipse.jetty.websocket:websocket-servlet:9.4.36.v20210114'
   devImplementation 'org.eclipse.jetty.websocket:websocket-server:9.4.36.v20210114'
-  devImplementation('ring:ring-jetty-adapter:1.9.5') {
-    because 'Needed by figwheel-repl'
-  }
+  devImplementation 'ring:ring-jetty-adapter:1.9.5'
 }
 
 clojurescript {
