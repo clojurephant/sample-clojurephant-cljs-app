@@ -14,4 +14,4 @@
 (set! (.-innerHTML app) "")
 
 (add-elem app "h1" "This is my app!")
-(add-elem app "p" (message 3 3))
+(add-elem app "p" (message 3 8))

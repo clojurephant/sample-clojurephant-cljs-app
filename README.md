@@ -8,24 +8,17 @@ Start the nREPL server:
 
     $ ./gradlew clojureRepl
 
-NOTE: REPL support for CLJS is in a rough state right in 0.7.0.
+NOTE: REPL support for CLJS is still expermintal in in 0.8.0.
 
 Connect to the nREPL server with your client/editor of choice and start the Figwheel REPL.
 
     user => (do
-              (require '[cljs.build.api])
-              (require '[figwheel.repl])
-              (require '[cider.piggieback])
-              (let [opts {:optimizations :none
-                          :main 'my.group.myapp
-                          :output-to "build/tmp/clojureRepl/public/js/main.js"
-                          :output-dir "build/tmp/clojureRepl/public/js/out"
-                          :asset-path "js/out"
-                          :source-map true}]
-              (cljs.build.api/build opts)
-              (cider.piggieback/cljs-repl (figwheel.repl/repl-env) opts)))
+              (require '[dev.clojurephant.tooling.figwheel-main :as fig])
+              (fig/start :dev))
 
-NOTE: This only uses the `figwheel-repl` component not the full `figwheel-main`. This means you don't get the hot-reloading Figwheel normally provides, but do get it's other REPL capabilities.
+This uses the [clojurephant-tooling](https://github.com/clojurephant/clojurephant-tooling) JAR to interoperate with figwheel-main and the config in your `build.gradle`.
+
+CIDER user's can use `M-x cider-jack-in-cljs` and use the `custom` option providing the above Clojure form to start the REPL.
 
 ## More Help
 

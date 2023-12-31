@@ -1,6 +1,3 @@
-(ns my.group.myapp.dev
-  (:require [figwheel.repl :as repl]))
-
-(repl/connect "ws://localhost:9500/figwheel-connect")
+(ns my.group.myapp.dev)
 
 (js/console.log "It's dev time!")

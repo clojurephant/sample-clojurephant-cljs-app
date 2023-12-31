@@ -1,5 +1,5 @@
 plugins {
-  id 'dev.clojurephant.clojurescript' version '0.7.0'
+  id 'dev.clojurephant.clojurescript' version '0.8.0-beta.4'
   id 'distribution'
 }
 
@@ -18,13 +18,11 @@ dependencies {
   implementation 'org.clojure:clojure:1.11.1'
   implementation 'org.clojure:clojurescript:1.11.60'
 
-  devImplementation 'cider:piggieback:0.5.3'
-  devImplementation 'com.bhauman:figwheel-repl:0.2.18'
-
-  // needed by figwheel-repl
-  devImplementation 'org.eclipse.jetty.websocket:websocket-servlet:9.4.36.v20210114'
-  devImplementation 'org.eclipse.jetty.websocket:websocket-server:9.4.36.v20210114'
-  devImplementation 'ring:ring-jetty-adapter:1.9.5'
+  devImplementation('dev.clojurephant:clojurephant-tooling:0.1.0-rc.2') {
+    capabilities {
+      requireCapability 'dev.clojurephant:clojurephant-tooling-figwheel-main'
+    }
+  }
 }
 
 clojurescript {
@@ -49,12 +47,11 @@ clojurescript {
         sourceMap = true
         preloads = ['my.group.myapp.dev']
       }
+      figwheel {
+        openUrl = 'http://localhost:9500/index.html'
+      }
     }
   }
-}
-
-tasks.named("clojureRepl") {
-  middleware.add("cider.piggieback/wrap-cljs-repl")
 }
 
 distributions {
