@@ -1,5 +1,5 @@
 plugins {
-  id 'dev.clojurephant.clojurescript' version '0.8.0-beta.4'
+  id 'dev.clojurephant.clojurescript' version '0.8.0'
   id 'distribution'
 }
 
@@ -15,10 +15,10 @@ repositories {
 }
 
 dependencies {
-  implementation 'org.clojure:clojure:1.11.1'
-  implementation 'org.clojure:clojurescript:1.11.60'
+  implementation 'org.clojure:clojure:1.12.0'
+  implementation 'org.clojure:clojurescript:1.11.132'
 
-  devImplementation('dev.clojurephant:clojurephant-tooling:0.1.0-rc.2') {
+  devImplementation('dev.clojurephant:clojurephant-tooling:0.1.0') {
     capabilities {
       requireCapability 'dev.clojurephant:clojurephant-tooling-figwheel-main'
     }
